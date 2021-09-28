@@ -1,0 +1,11 @@
+@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+ActionBar, Button {
+  background-color: #ed3e04;
+  color: white;
+}
+
+ActionBar Label {
+  color: white;
+}
