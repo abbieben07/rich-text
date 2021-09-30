@@ -104,5 +104,11 @@
             "demo.vue.ios": "Runs the Vue demo on iOS.",
             "watch": "Watch for changes in the plugin source and re-build."
         }
+    },
+    "dependencies": {
+        "currency-symbol": "^1.0.6",
+        "currency.js": "^2.0.4",
+        "imask": "^6.2.2",
+        "string-mask": "^0.3.0"
     }
 }

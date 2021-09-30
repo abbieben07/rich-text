@@ -1,15 +1,15 @@
 <template>
-    <Page>
-        <ActionBar>
-            <NavigationButton text="Back" android.systemIcon="ic_menu_back" @tap="$navigateBack" />
-            <Label text="Demo 1" />
-        </ActionBar>
+	<Page>
+		<ActionBar>
+			<NavigationButton text="Back" android.systemIcon="ic_menu_back" @tap="$navigateBack" />
+			<Label text="Demo 1" />
+		</ActionBar>
 
-        <StackLayout>
-            <Label text="The version is:" />
-            <VersionNumber />
-        </StackLayout>
-    </Page>
+		<StackLayout>
+			<Label text="The version is:" />
+			<TextField currency="NGN" />
+		</StackLayout>
+	</Page>
 </template>
 
 <script>
