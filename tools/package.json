@@ -2,7 +2,7 @@
     "name": "@nativescript-community/plugin-dependencies",
     "version": "0.0.1",
     "scripts": {
-        "build": "rm -f .tsbuildinfo && npm run tsc",
+        "build": "del /q .tsbuildinfo && npm run tsc",
         "build.angular": "ng-packagr -p src/angular/package.json -c src/angular/tsconfig.json",
         "build.all": "npm run build && npm run build.angular",
         "clean": "rimraf ./plugin/**/*.d.ts ./plugin/**/*.js ./plugin/**/*.js.map node_modules package-lock.json",
@@ -79,4 +79,3 @@
         "zone.js": "~0.11.4"
     }
 }
-

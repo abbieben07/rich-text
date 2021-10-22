@@ -1,7 +1,16 @@
-import { EditableTextBase } from "@nativescript/core";
+import { EditableTextBase, View } from "@nativescript/core";
+import { FormatMask } from "./mask.common";
+
+export const MaskedTextField = (target: EditableTextBase, oldvalue: string, value: string) => {
+    target.once(View.loadedEvent, _ => {
+        const view: UITextField = target.nativeTextViewProtected;
+        view.text = FormatMask(view.text, value)
+        view.delegate = MaskTextDelegate.initWithOwner(new WeakRef(target), value)
+    })
+}
 
 @NativeClass()
-export class MaskTextDelegate extends NSObject implements UITextFieldDelegate {
+class MaskTextDelegate extends NSObject implements UITextFieldDelegate {
     private owner: WeakRef<EditableTextBase>;
     private symbol: string;
     static ObjCProtocols = [UITextFieldDelegate];

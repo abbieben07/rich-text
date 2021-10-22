@@ -1,10 +1,10 @@
-import { EditableTextBase } from "@nativescript/core";
+import { EditableTextBase, View } from "@nativescript/core";
 import { FormatMoney } from "./currency.common";
 
 export const CurrencyTextField = (target: EditableTextBase, oldvalue: string, value: string) => {
     target.once(View.loadedEvent, _ => {
-        const view: android.widget.EditText = target.nativeTextViewProtected;
-        view.setText(FormatMoney(view.text, value))
+        const view: UITextField = target.nativeTextViewProtected;
+        view.text = FormatMoney(view.text, value)
         view.delegate = CurrencyTextDelegate.initWithOwner(new WeakRef(target), value)
     })
 }
