@@ -41,10 +41,10 @@
         "category-general"
     ],
     "dependencies": {
-        "@nativescript-community/rich-text": "../plugin",
         "@nativescript/core": "8.1.1",
         "@nativescript/theme": "~3.0.1",
-        "nativescript-vue": "~2.9.0"
+        "nativescript-vue": "~2.9.0",
+        "@abbieben/rich-text": "../plugin"
     },
     "devDependencies": {
         "@nativescript/android": "8.1.1",

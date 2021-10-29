@@ -7,13 +7,25 @@
 
 		<StackLayout>
 			<Label text="This is the second demo..." />
-			<TextField text="+23408064088402" mask="+234 (0000) 000 0000" />
+			<TextField phone="NG" :text="money" @textChange="onChange" />
 		</StackLayout>
 	</Page>
 </template>
 
 <script>
-export default {};
+export default {
+	data() {
+		return {
+			money: "",
+		};
+	},
+	methods: {
+		onChange({ value }) {
+			this.money = value;
+			console.log("Edit ", value);
+		},
+	},
+};
 </script>
 
 <style lang="scss" scoped>

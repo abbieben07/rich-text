@@ -1,16 +1,20 @@
 import { EditableTextBase, View } from "@nativescript/core";
+import { textProperty } from "@nativescript/core/ui/text-base";
 import { FormatMask } from "./mask.common";
 
 export const MaskedTextField = (target: EditableTextBase, oldvalue: string, value: string) => {
     target.once(View.loadedEvent, _ => {
         const view: android.widget.EditText = target.nativeTextViewProtected;
-        console.log("Currency", value);
-        view.setText(FormatMask(view.getText().toString(), value))
 
-        if (target.textWatcher) {
-            view.removeTextChangedListener(target.textWatcher);
-        }
-        target.textWatcher = new MaskTextWatcher(new WeakRef(target), value)
+        //@ts-ignore
+        view.removeTextChangedListener(view.listener)
+        view.setText(FormatMask(view.getText().toString(), value));
+
+        //@ts-ignore
+        if (target.textWatcher) view.removeTextChangedListener(target.textWatcher);
+        //@ts-ignore
+        target.textWatcher = new MaskTextWatcher(new WeakRef(target), value);
+        //@ts-ignore
         view.addTextChangedListener(target.textWatcher);
     })
 }
@@ -32,10 +36,10 @@ class MaskTextWatcher extends java.lang.Object implements android.text.TextWatch
         const editText: android.widget.EditText = owner.nativeTextViewProtected;
         editText.removeTextChangedListener(this);
 
-        console.log("masked", s.toString());
         const formatted = FormatMask(s.toString(), this.mask);
         editText.setText(formatted);
         editText.setSelection(formatted.length);
+        textProperty.nativeValueChange(owner, formatted)
 
         editText.addTextChangedListener(this);
     }

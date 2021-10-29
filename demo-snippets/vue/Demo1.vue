@@ -7,13 +7,25 @@
 
 		<StackLayout>
 			<Label text="The version is:" />
-			<TextField currency="NGN" />
+			<TextField currency="NGN" :text="money" @textChange="onChange" />
 		</StackLayout>
 	</Page>
 </template>
 
 <script>
-export default {};
+export default {
+	data() {
+		return {
+			money: 0,
+		};
+	},
+	methods: {
+		onChange({value}) {
+			this.money = value;
+			console.log("Edit ", value);
+		},
+	},
+};
 </script>
 
 <style lang="scss" scoped></style>

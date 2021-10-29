@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import { AsYouType, CountryCode, getCountryCallingCode } from 'libphonenumber-js'
 
 //@ts-ignore

@@ -1,12 +1,12 @@
 import Vue from 'nativescript-vue';
-import { RichText } from '@nativescript-community/rich-text';
+import { installRichText } from '@abbieben/rich-text';
 
 import Demo1 from './Demo1.vue';
 import Demo2 from './Demo2.vue';
 import Development from './Development.vue';
 
 export function install() {
-    RichText()
+    installRichText()
 }
 
 export const demos = [
